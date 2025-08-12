@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "Color.hpp"
+#include "vec3.hpp"
 
 /**
  * @struct Image
@@ -16,13 +16,13 @@ struct Image {
 
     ~Image();
 
-    Color& operator()(unsigned int row, unsigned int column);
+    vec3& operator()(unsigned int row, unsigned int column);
 
-    const Color& operator()(unsigned int row, unsigned int column) const;
+    const vec3& operator()(unsigned int row, unsigned int column) const;
 
     void write() const;
 
     const unsigned int width;
     const unsigned int height;
-    Color** data;
+    vec3** data;
 };

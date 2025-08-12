@@ -15,7 +15,7 @@ void run() {
     /* ---- Do Stuff ---- */
     for(unsigned int j = 0 ; j < image.height ; ++j) {
         for(unsigned int i = 0 ; i < image.width ; ++i) {
-            Color& pixel = image(i, j);
+            vec3& pixel = image(i, j);
             pixel.r = static_cast<float>(i) / image.width;
             pixel.b = static_cast<float>(j) / image.height;
         }

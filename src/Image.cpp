@@ -12,8 +12,8 @@
 
 Image::Image(unsigned int width, unsigned int height)
     : width(width), height(height), data(nullptr) {
-    data = new Color*[width];
-    for(unsigned int i = 0 ; i < width ; ++i) { data[i] = new Color[height]; }
+    data = new vec3*[width];
+    for(unsigned int i = 0 ; i < width ; ++i) { data[i] = new vec3[height]; }
 }
 
 Image::~Image() {
@@ -21,28 +21,28 @@ Image::~Image() {
     delete[] data;
 }
 
-Color& Image::operator()(unsigned int row, unsigned int column) {
+vec3& Image::operator()(unsigned int row, unsigned int column) {
     return data[row][column];
 }
 
-const Color& Image::operator()(unsigned int row, unsigned int column) const {
+const vec3& Image::operator()(unsigned int row, unsigned int column) const {
     return data[row][column];
 }
 
 void Image::write() const {
     std::vector<uint8_t> normalized_data;
-    normalized_data.reserve(width * height * 4);
+    normalized_data.reserve(width * height * 3);
 
     for(unsigned int j = 0 ; j < height ; ++j) {
         for(unsigned int i = 0 ; i < width ; ++i) {
-            const Color& pixel = data[i][j];
+            const vec3& pixel = data[i][j];
+
             normalized_data.push_back(std::clamp(255.0f * pixel.r, 0.0f, 255.0f));
             normalized_data.push_back(std::clamp(255.0f * pixel.g, 0.0f, 255.0f));
             normalized_data.push_back(std::clamp(255.0f * pixel.b, 0.0f, 255.0f));
-            normalized_data.push_back(std::clamp(255.0f * pixel.a, 0.0f, 255.0f));
         }
     }
 
     stbi_flip_vertically_on_write(true);
-    stbi_write_png("data/img.png", width, height, 4, normalized_data.data(), width * 4);
+    stbi_write_png("data/img.png", width, height, 3, normalized_data.data(), width * 3);
 }

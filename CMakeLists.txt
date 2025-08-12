@@ -18,8 +18,8 @@ set(SOURCES
         src/main.cpp
 
         # Classes
-        src/Color.cpp
         src/Image.cpp
+        src/vec3.cpp
 
         # Other Sources
 
