@@ -18,20 +18,22 @@ set(SOURCES
         src/main.cpp
 
         # Classes
-
+        src/Color.cpp
+        src/Image.cpp
 
         # Other Sources
 
 
         # Libraries
-
+        lib/stb/stb_image.cpp
+        lib/stb/stb_image_write.cpp
 )
 
 set(INCLUDES
         include
 
         # Libraries
-
+        lib/stb
 )
 
 set(LIBRARIES
