@@ -19,6 +19,7 @@ set(SOURCES
 
         # Classes
         src/Image.cpp
+        src/Ray.cpp
         src/vec3.cpp
 
         # Other Sources
