@@ -3,7 +3,7 @@
  * @brief Implementation of the vec2 struct
  **************************************************************************************************/
 
-#include "vec2.hpp"
+#include "../../include/maths/vec2.hpp"
 
 vec2::vec2() : x(), y() { }
 

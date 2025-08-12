@@ -3,7 +3,7 @@
  * @brief Implementation of the vec4 struct
  **************************************************************************************************/
 
-#include "vec4.hpp"
+#include "../../include/maths/vec4.hpp"
 
 vec4::vec4() : x(), y(), z(), w() { }
 

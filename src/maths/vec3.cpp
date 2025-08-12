@@ -3,7 +3,7 @@
  * @brief Implementation of the vec3 struct
  **************************************************************************************************/
 
-#include "vec3.hpp"
+#include "../../include/maths/vec3.hpp"
 
 vec3::vec3() : x(), y(), z() { }
 
