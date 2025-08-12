@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "vec3.hpp"
+#include "maths/vec3.hpp"
 
 /**
  * @struct Ray
