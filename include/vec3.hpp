@@ -109,9 +109,9 @@ struct vec3 {
         };
 
         struct {
-            float r; ///< The r component of the vec3.
-            float g; ///< The g component of the vec3.
-            float b; ///< The b component of the vec3.
+            float r; ///< The r component of the color.
+            float g; ///< The g component of the color.
+            float b; ///< The b component of the color.
         };
     };
 };
