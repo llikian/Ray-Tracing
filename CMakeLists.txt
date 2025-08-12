@@ -17,13 +17,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic")
 set(SOURCES
         src/main.cpp
 
-        # Classes
         src/Image.cpp
         src/Ray.cpp
-        src/vec3.cpp
 
-        # Other Sources
-
+        # Maths Module
+        src/maths/geometry.cpp
+        src/maths/vec2.cpp
+        src/maths/vec3.cpp
+        src/maths/vec4.cpp
 
         # Libraries
         lib/stb/stb_image.cpp

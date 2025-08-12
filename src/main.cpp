@@ -3,21 +3,43 @@
  * @brief Contains the main program of the project
  **************************************************************************************************/
 
+#include <cmath>
 #include <iostream>
 #include <stdexcept>
 
 #include "Image.hpp"
+#include "Ray.hpp"
+#include "maths/geometry.hpp"
+#include "maths/vec2.hpp"
+
+template<typename T>
+T lerp(T value_at_0, T value_at_1, float t) {
+    return (1.0f - t) * value_at_0 + t * value_at_1;
+}
 
 void run() {
-    /* ---- Create Image Data ---- */
-    Image image(512, 512);
+    /* ---- Init ---- */
+    unsigned int width = 1025;
+    unsigned int height = 512;
+    Image image(width, height);
+
+    vec3 camera(0.0f, 0.0f, 0.0f);
 
     /* ---- Do Stuff ---- */
-    for(unsigned int j = 0 ; j < image.height ; ++j) {
-        for(unsigned int i = 0 ; i < image.width ; ++i) {
+    vec3 extremity(0.0f, 0.0f, -1.0f);
+
+    for(unsigned int j = 0 ; j < height ; ++j) {
+        for(unsigned int i = 0 ; i < width ; ++i) {
+            /* Extremity & Ray */
+            extremity.x = (2.0f * i - width) / height;
+            extremity.y = (2.0f * j - height) / height;
+
+            Ray ray(camera, extremity - camera);
+
+            /* Pixel Color */
             vec3& pixel = image(i, j);
-            pixel.r = static_cast<float>(i) / image.width;
-            pixel.b = static_cast<float>(j) / image.height;
+
+            pixel = lerp(vec3(1.0f), vec3(0.5f, 0.7f, 1.0f), 0.5f + 0.5f * ray.direction.y);
         }
     }
 
